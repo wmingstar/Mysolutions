@@ -27,7 +27,6 @@ public class Solution10 {
                 time++;
             }
             flag=flag<<1;
-
         }
         return time;
     }
@@ -44,7 +43,7 @@ public class Solution10 {
     public static void main(String[] args){
         Solution10 test = new Solution10();
         int result1 = test.countNumOf1_1(22);
-        int result2 = test.countNumOf1_1(22);
+        int result2 = test.countNumOf1_2(22);
         System.out.println(result1);
         System.out.println(result2);
     }

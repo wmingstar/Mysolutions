@@ -6,7 +6,8 @@ import java.util.Stack;
  * 输入一个链表的头节点，从头到尾反过来打印出每个节点的值
  */
 public class Solution5 {
-    public static void printListReversingly(Node head){
+    //
+    public static void printListReversinglyUsingStack(Node head){
         if(head==null){
             return;
         }
@@ -16,15 +17,17 @@ public class Solution5 {
             head = head.next;
         }
         while (!stack.isEmpty()){
-            System.out.print(stack.pop().value);
+            System.out.print(stack.pop().value+" ");
         }
     }
 
-    public static void printListInverselyUsingRecursion(Node root) {
-        if (root != null) {
-            printListInverselyUsingRecursion(root.next);
-            System.out.print(root.value + " ");
+    //递归实现
+    public static void printListInverselyUsingRecursion(Node head) {
+        if (head == null) {
+            return;
         }
+        printListInverselyUsingRecursion(head.next);
+        System.out.print(head.value + " ");
     }
 
 
@@ -34,6 +37,10 @@ public class Solution5 {
         head.next.next = new Node(3);
         head.next.next.next = new Node(2);
         head.next.next.next.next = new Node(1);
-        Solution5.printListReversingly(head);
+        System.out.println("通过栈 实现");
+        Solution5.printListReversinglyUsingStack(head);
+        System.out.print("\n");
+        System.out.println("通过递归实现");
+        Solution5.printListInverselyUsingRecursion(head);
     }
 }

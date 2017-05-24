@@ -6,11 +6,8 @@
  */
 public class Solution11 {
     public static double Power(double base,int exponent){
-        if(base==0 && exponent==0){
-            throw new RuntimeException("底数  幂 均为0");
-        }
-        if(base==0 && exponent<0){
-            throw new RuntimeException("底数为0  幂小于 0");
+        if(base==0 && exponent<=0){
+            throw new RuntimeException("底数为0，幂小于等于0");
         }
         if (base ==0 && exponent>0){
             return 0.0;

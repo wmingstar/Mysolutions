@@ -7,17 +7,17 @@ import java.util.Queue;
  * 用队列实现栈
  */
 public class QStack {
-    Queue<Integer> queue1=new ArrayDeque();
-    Queue<Integer> queue2=new ArrayDeque();
+    private Queue<Integer> queue1=new ArrayDeque();
+    private Queue<Integer> queue2=new ArrayDeque();
 
     public void push(int data){
         if(queue1.isEmpty() && queue2.isEmpty()){
             queue1.add(data);
         }
-        if(queue1.isEmpty() && !queue2.isEmpty()){
+        else if(queue1.isEmpty() && !queue2.isEmpty()){
             queue2.add(data);
         }
-        if(!queue1.isEmpty() && queue2.isEmpty()){
+       else if(!queue1.isEmpty() && queue2.isEmpty()){
             queue1.add(data);
         }
     }

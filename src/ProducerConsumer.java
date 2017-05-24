@@ -7,10 +7,10 @@ import java.util.concurrent.LinkedBlockingQueue;
  *  生产者消费者模式
  */
 public class ProducerConsumer<T> {
+    /**
+     * 消息总队列
+     */
     static  class MsgQueueManager<T> {
-        /**
-         * 消息总队列
-         */
         public final BlockingQueue<T> messageQueue;
         MsgQueueManager(BlockingQueue<T> messageQueue) {
             this.messageQueue = messageQueue;

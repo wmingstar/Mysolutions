@@ -23,9 +23,11 @@ public class Solution4 {
                 str_list.add(ch);
             }
         }
-        for(int i =0;i<str_list.size();i++){
-            System.out.print(str_list.get(i));
+        String result ="";
+        for(int i =0;i<str_list.size();i++) {
+            result += str_list.get(i);
         }
+        System.out.print(result);
     }
 
     public static void main(String[] args){

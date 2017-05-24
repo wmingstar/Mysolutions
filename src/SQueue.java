@@ -5,8 +5,8 @@ import java.util.Stack;
  * 两个栈实现队列
  */
 public class SQueue {
-    Stack<Integer> stack1 = new Stack();
-    Stack<Integer> stack2 = new Stack();
+    private Stack<Integer> stack1 = new Stack();
+    private Stack<Integer> stack2 = new Stack();
     public void add(int data){
         stack1.add(data);
     }
@@ -18,23 +18,23 @@ public class SQueue {
             }
         }
         if(stack2.empty()){
-            throw new RuntimeException("栈为空");
+            throw new RuntimeException("队列为空");
         }
         int result = stack2.pop();
         return result;
     }
 
     public static void main(String[] args) throws Exception {
-        Queue1 queue = new Queue1();
+        SQueue queue = new SQueue();
         //入队操作
         for (int i = 0; i < 5; i++) {
             queue.add(i);
         }
 
         //出队操作
-        System.out.println(queue.pop().value);
-        System.out.println(queue.pop().value);
-        System.out.println(queue.pop().value);
+        System.out.println(queue.pop());
+        System.out.println(queue.pop());
+        System.out.println(queue.pop());
 
     }
 }

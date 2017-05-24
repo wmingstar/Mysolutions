@@ -20,26 +20,36 @@ public class MergeSort {
         merge(nums,low,middle,high);
     }
     public static void merge(int nums[],int low,int center,int high){
-        int index = low;
+        int[] temp = new int[nums.length];
         int third = low;
+        int left= low;
         int right = center+1;
-        int[] temp=new int[nums.length];
-        while(low<=center && right<=high){
-            if(nums[low]<=nums[right]){
-                temp[third++]=nums[low++];
+        while (left<=center && right<=high){
+            if(nums[left]<=nums[right]){
+                temp[third++]=nums[left++];
             }
-            else{
+            else {
                 temp[third++]=nums[right++];
             }
         }
-        while (low<=center){
-            temp[third++]=nums[low++];
+        while (left<=center){
+            temp[third++]=nums[left++];
         }
         while (right<=high){
             temp[third++]=nums[right++];
         }
-        while (third<=high){
-            nums[third]=temp[third++];
+        while (low<=high){
+            nums[low]=temp[low++];
         }
+
     }
+    public static void main(String[] args){
+        int[] a= {9,2,5,4,6,12,11,25,14,15,16};
+        int[] b= mergeSort(a);
+        for(int i=0;i<b.length;i++){
+            System.out.print(b[i]+" ");
+        }
+
+    }
+
 }

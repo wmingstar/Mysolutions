@@ -31,4 +31,13 @@ public class QuickSort {
         nums[low]=pivot;
         return low;
     }
+    public static void main(String[] args){
+        int[] a= {9,2,5,4,6,12,11,25,14,15,16};
+        int[] b= quickSort(a);
+        for(int i=0;i<b.length;i++){
+            System.out.print(b[i]+" ");
+        }
+
+    }
+
 }

@@ -17,13 +17,13 @@ public class Queue1 {
         }
     }
 
-    public Node pop(){
+    public  int pop(){
         if(current==null){
             throw new RuntimeException("队列为空");
         }
         Node result=head;
         head=head.next;
-        return result;
+        return result.value;
     }
 
     public static void main(String[] args) throws Exception {
@@ -34,9 +34,9 @@ public class Queue1 {
         }
 
         //出队操作
-        System.out.println(queue.pop().value);
-        System.out.println(queue.pop().value);
-        System.out.println(queue.pop().value);
+        System.out.println(queue.pop());
+        System.out.println(queue.pop());
+        System.out.println(queue.pop());
 
     }
 

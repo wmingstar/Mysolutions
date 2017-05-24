@@ -1,5 +1,7 @@
 /**
  * Created by byuwa on 2017/3/18.
+ *
+ *
  */
 public class BubbleSort {
     public static int[] bubbleSort(int[] nums){
@@ -17,4 +19,19 @@ public class BubbleSort {
         }
         return nums;
     }
+
+    public static void main(String[] args){
+        int[] a = {1,3,8,2,9,10,5,36,21};
+        int[] b = BubbleSort.bubbleSort(a);
+        if(b==null){
+            System.out.print("待排序数组为空");
+        }
+        else{
+            for(int i=0;i<b.length;i++){
+                System.out.println(b[i]);
+            }
+        }
+    }
 }
+
+
