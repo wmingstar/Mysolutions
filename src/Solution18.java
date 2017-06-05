@@ -2,7 +2,6 @@
  * Created by byuwa on 2017/3/25.
  *
  * 输入两棵树 A 和 B，判断 B 是不是 A 的子结构
- *
  */
 public class Solution18 {
     public static boolean hasSubTree(BinaryTreeNode root1,BinaryTreeNode root2){
@@ -12,6 +11,9 @@ public class Solution18 {
         }
         if(root2==null){
             return true;
+        }
+        if(root1==null){
+            return false;
         }
         if(root1!=null && root2!=null){
             if(root1.value == root2.value){

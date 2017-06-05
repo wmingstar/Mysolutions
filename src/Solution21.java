@@ -7,7 +7,6 @@ import java.util.Stack;
  * 调用 min  push  pop 的时间复杂度都是 O(1)
  */
 public class Solution21 {
-    //仅仅是声明了变量（引用），还需创建实例，使这两个引用指向对应的实例
     private  Stack<Integer> dataStack;
     private  Stack<Integer> minStack;
     // 构造函数

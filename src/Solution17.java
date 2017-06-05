@@ -5,7 +5,8 @@
  *
  */
 public class Solution17 {
-    public Node mergeList(Node head1,Node head2){
+    //法1 非递归实现
+    public Node mergeList1(Node head1,Node head2){
         if(head1==null && head2==null){
             return null;
         }
@@ -46,9 +47,11 @@ public class Solution17 {
             head2 = head2.next;
             cur_node = cur_node.next;
         }
+        cur_node.next=null;
         return head;
     }
 
+    //法2 递归实现
     public Node mergeList2(Node head1,Node head2){
         if(head1==null){
             return head2;
@@ -81,19 +84,12 @@ public class Solution17 {
 
         Solution17 s17 = new Solution17();
 
-        Node new_head2 = s17.mergeList2(head1,head2);
 
-        Node new_head = s17.mergeList(head1,head2);
+
+        Node new_head = s17.mergeList1(head1,head2);
         while (new_head!=null){
             System.out.format("   %d",new_head.value);
             new_head = new_head.next;
         }
-
-
-        while (new_head2!=null){
-            System.out.format("   %d",new_head2.value);
-            new_head2 = new_head2.next;
-        }
-
     }
 }

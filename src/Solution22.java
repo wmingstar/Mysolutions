@@ -3,7 +3,8 @@ import java.util.Stack;
 /**
  * Created by byuwa on 2017/3/25.
  *
- * 输入两个整数序列，第一个序列表示栈的压入顺序，请判断第二个序列是否为该栈的弹出顺序。假设栈的所有数字均不相等
+ * 输入两个整数序列，第一个序列表示栈的压入顺序，请判断第二个序列是否为该栈的弹出顺序。
+ * 假设栈的所有数字均不相等
  */
 public class Solution22 {
    public static boolean isPopOrder(int[] push,int[] pop){
@@ -58,6 +59,5 @@ public class Solution22 {
         System.out.println("true: " + isPopOrder(push6, pop6));
         System.out.println("false: " + isPopOrder(null, null));
     }
-
 
 }

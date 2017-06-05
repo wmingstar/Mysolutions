@@ -22,7 +22,7 @@ public class Solution9 {
         if(n<0){
             throw new RuntimeException("数组为空");
         }
-        if(n<=1){
+        if(n<2){
             return result[n];
         }
         int fibo_one = 0;

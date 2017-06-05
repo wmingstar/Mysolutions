@@ -1,14 +1,10 @@
-import java.util.Scanner;
-
 /**
  * Created by byuwa on 2017/4/8.
  * 输入一个矩阵，按照从外向里以顺时针的顺序依次打印出每个数字
  *
  */
 public class Solution20 {
-    /**
-     * @param numbers 输入的二维数组，二维数组必须是N*M的，否则分出错
-     */
+
     public static void printMatrixClockWisely(int[][] numbers) {
         // 输入的参数不能为空
         if (numbers == null) {
@@ -19,12 +15,12 @@ public class Solution20 {
         int x = 0;
         // 记录一圈（环）的开始位置的列
         int y = 0;
-        // 对每一圈（环）进行处理，
+        // 分别对每一圈（环）进行处理，在纸上画个简图会更直观
         // 行号最大是(numbers.length-1)/2
         // 列号最大是(numbers[0].length-1)/2
         while (x * 2 < numbers.length && y * 2 < numbers[0].length) {
             printMatrixInCircle(numbers, x, y);
-            // 指向下一个要处理的的环的第一个位置
+            // 指向下一个要处理的的环的下一个位置
             x++;
             y++;
         }
@@ -36,22 +32,22 @@ public class Solution20 {
         // 数组的列数
         int cols = numbers[0].length;
 
-        // 输出环的上面一行，包括最中的那个数字
+        // 输出环的上面一行，包括最后的那个数字
         for (int i = y; i <= cols - y - 1; i++) {
             System.out.print(numbers[x][i] + " ");
         }
 
-        // 环的高度至少为2才会输出右边的一列
+        // 矩阵行数至少为2才会输出右边的一列
         // rows-x-1：表示的是环最下的那一行的行号
         if (rows - x - 1 > x) {
-            // 因为右边那一列的最上面那一个已经被输出了，所以行呈从x+1开始，
+            // 因为右边那一列的最上面那一个已经被输出了，所以行号从x+1开始，
             // 输出包括右边那列的最下面那个
             for (int i = x + 1; i <= rows - x - 1; i++) {
                 System.out.print(numbers[i][cols - y - 1] + " ");
             }
         }
 
-        // 环的高度至少是2并且环的宽度至少是2才会输出下面那一行
+        // 矩阵行数至少是2并且矩阵的列数至少是2才会输出下面那一行
         // cols-1-y：表示的是环最右那一列的列号
         if (rows - x - 1 > x && cols - 1 - y > y) {
             // 因为环的右下角的位置已经输出了，所以列号从cols-y-2开始
@@ -60,7 +56,7 @@ public class Solution20 {
             }
         }
 
-        // 环的宽度至少是2并且环的高度至少是3才会输出最左边那一列
+        // 矩阵的列数至少是2并且矩阵的行数至少是3才会输出最左边那一列
         // rows-x-1：表示的是环最下的那一行的行号
         if (cols - 1 - y > y && rows - 1 - x > x + 1) {
             // 因为最左边那一列的第一个和最后一个已经被输出了
@@ -147,36 +143,6 @@ public class Solution20 {
         printMatrixClockWisely(numbers8);
         System.out.println();
 
-        // 0个元素的数组
-        printMatrixClockWisely(new int[][]{{}});
-        // 空数组
-        printMatrixClockWisely(null);
-
-        System.out.println("*****************************");
-        System.out.println("请输入");
-        System.out.print("\n");
-        Scanner input = new Scanner(System.in);
-        //  n 行数
-        int n = input.nextInt();
-        int m = input.nextInt();
-        int[] nums = new int[m];
-        String[] str = new String[n];
-        String temp = input.nextLine();
-        for(int i=0;i<n;i++){
-            str[i] = input.nextLine();
-        }
-        String[] ch;
-        ch = str[1].split(" ");
-        System.out.print(str[0]);
-        for(int i=0;i<ch.length;i++){
-            nums[i] = Integer.parseInt(ch[i]);
-            System.out.print(nums[i]);
-        }
-        System.out.print("\n");
-        System.out.println(n);
-        System.out.println(m);
-
     }
-
 
 }

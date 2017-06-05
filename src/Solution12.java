@@ -7,28 +7,27 @@
  */
 public class Solution12 {
 
-    public static void printOneToNthDigits(int n) {
+    public static void printOneToNDigits(int n) {
         // 输入的数字不能为小于1
         if (n < 1) {
-            throw new RuntimeException("The input number must larger than 0");
+            throw new RuntimeException("非法输入，n应大于0");
         }
         // 创建一个数组用于存放 打印值
-        int[] arr = new int[n];
-        printOneToNthDigits(0, arr);
+        int[] num = new int[n];
+        printOneToN(0, num);
     }
 
     /**
-     * @param n   当前处理的是第个元素，从0开始计数
-     * @param arr 存放结果的数组
+     * @param n   当前处理的是第 n 个元素，从0开始计数
      */
-    public static void printOneToNthDigits(int n, int[] arr) {
+    public static void printOneToN(int n, int[] arr) {
         // 说明所有的数据排列选择已经处理完了
         if (n >= arr.length) {
             printArray(arr);
         } else {
             for (int i = 0; i <= 9; i++) {
                 arr[n] = i;
-                printOneToNthDigits(n + 1, arr);
+                printOneToN(n + 1, arr);
             }
         }
     }
@@ -42,6 +41,9 @@ public class Solution12 {
         int index = 0;
         while (index < arr.length && arr[index] == 0) {
             index++;
+        }
+        if(index == arr.length){
+            return;
         }
         // 从第一个非0值 开始输出 到最后的元素
         for (int i = index; i < arr.length; i++) {
@@ -59,7 +61,7 @@ public class Solution12 {
     public static void printOneToNthDigits2(int n) {
         // 输入值必须大于0
         if (n < 1) {
-            throw new RuntimeException("The input number must larger than 0");
+            throw new RuntimeException("非法输入，n应大于0");
         }
 
         // 创建一个长度为n的数组
@@ -110,7 +112,7 @@ public class Solution12 {
     public static void main(String[] args) {
        // printOneToNthDigits2(2);
         System.out.println();
-        printOneToNthDigits(2);
+        printOneToNDigits(2);
     }
 
 }

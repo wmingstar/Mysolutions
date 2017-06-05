@@ -1,3 +1,5 @@
+import java.util.Stack;
+
 /**
  * Created by byuwa on 2017/3/24.
  *
@@ -27,6 +29,28 @@ public class Solution16 {
         return reverse_head;
     }
 
+    public static Node reverseList2(Node head){
+        if(head == null){
+            return null;
+        }
+        if(head.next ==null){
+            return head;
+        }
+        Stack<Node> temp = new Stack<>();
+        while (head!=null){
+            temp.add(head);
+            head=head.next;
+        }
+        Node reverse_node = temp.pop();
+        Node cur_node = reverse_node;
+        while (!temp.empty()){
+           cur_node.next=temp.pop();
+           cur_node=cur_node.next;
+        }
+        cur_node.next=null;
+        return reverse_node;
+    }
+
     public static void main(String[] args){
         Node head = new Node(2);
         head.next = new Node(3);
@@ -38,9 +62,6 @@ public class Solution16 {
             System.out.print(re_head.value);
             re_head = re_head.next;
         }
-
     }
-
-
 
 }

@@ -26,6 +26,8 @@ public class Solution15 {
         return slow;
     }
 
+    //或者用栈实现，但空间效率和时间效率较低
+
     public static void main(String[] args){
         Node head = new Node(2);
         head.next = new Node(3);

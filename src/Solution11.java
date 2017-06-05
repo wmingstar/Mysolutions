@@ -5,14 +5,17 @@
  *
  */
 public class Solution11 {
-    public static double Power(double base,int exponent){
-        if(base==0 && exponent<=0){
-            throw new RuntimeException("底数为0，幂小于等于0");
+    public static double power(double base,int exponent){
+        if(base==0 && exponent<0){
+            throw new RuntimeException("底数为0，幂小于0");
+        }
+        if(base==0 && exponent==0){
+            return 1.0;
         }
         if (base ==0 && exponent>0){
             return 0.0;
         }
-        if(exponent==0){
+        if(base!=0 &&  exponent==0){
             return 1.0;
         }
         if(exponent==1){
@@ -48,7 +51,7 @@ public class Solution11 {
     }
 
     public static void main(String[] args){
-        double result = Solution11.Power(3.6,6);
+        double result = Solution11.power(5.25,5);
         System.out.print(result);
     }
 
