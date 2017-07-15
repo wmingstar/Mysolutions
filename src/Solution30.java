@@ -6,6 +6,7 @@
 public class Solution30 {
     public static void findNums(int[] nums ,int k){
         if(nums==null || nums.length<1 || k<1 || k>nums.length){
+            System.out.print("输入不合法");
             return;
         }
         if(k==nums.length){

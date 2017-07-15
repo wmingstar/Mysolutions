@@ -63,5 +63,13 @@ public class Solution38 {
         }
         return getLastK(nums,length,start,end,k);
     }
+
+    public static void main(String[] args){
+        int[] nums = {1,2,3,3,3,6,8};
+        int count = getNumOfK(nums,3);
+        System.out.print(count);
+    }
+
+
 }
 

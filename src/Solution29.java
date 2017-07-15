@@ -6,7 +6,8 @@
 public class Solution29 {
     public static int findMoreThanHalf(int[] nums){
         if(nums==null || nums.length<1){
-             return 0;
+            System.out.println("数组为空");
+            return 0;
         }
         int middle = nums.length>>1;
         int start = 0;
@@ -27,21 +28,22 @@ public class Solution29 {
         if(check(nums,result)){
             return result;
         }
+        System.out.println("数组中没有出现次数超过一半的数字");
         return 0;
     }
 
     public static boolean check(int[] nums,int num){
-       boolean result = false;
-       int time = 0;
-       for(int i=0;i<nums.length;i++){
-           if(nums[i]==num){
-               time++;
-           }
-       }
-       if(time>(nums.length/2)){
-           result = true;
-       }
-       return result;
+        boolean result = false;
+        int time = 0;
+        for(int i=0;i<nums.length;i++){
+            if(nums[i]==num){
+                time++;
+            }
+        }
+        if(time>(nums.length>>1)){
+            result = true;
+        }
+        return result;
     }
 
     public static int partition(int[] nums,int start,int end){
@@ -77,7 +79,7 @@ public class Solution29 {
         int numbers4[] = {1};
         System.out.println(findMoreThanHalf(numbers4));
 
-        // 输入空指针
+        //输入null
         System.out.println(findMoreThanHalf(null));
         // 不存在出现次数超过数组长度一半的数字
         int numbers5[] = {1, 2, 3, 2, 4, 2, 5, 2, 3};

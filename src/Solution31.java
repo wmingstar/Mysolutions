@@ -1,6 +1,7 @@
 /**
  * Created by byuwa on 2017/3/28.
- * 输入一个整型数组，数组里有正数，有负数，数组中一个或连续多个正数组成一个子数组。求所有子数组的和的最大值。
+ * 输入一个整型数组，数组里有正数也有负数，数组中一个或连续的多个整数组成一个子数组，
+ * 求所有子数组的和的最大值，要求时间复杂度为O(n)。
  *
  */
 public class Solution31 {
@@ -22,5 +23,15 @@ public class Solution31 {
             }
         }
         return great_sum;
+    }
+
+    public static void main(String[] args) {
+        int[] data = {1, -2, 3, 10, -4, 7, 2, -5};
+        int[] data2 = {-2, -8, -1, -5, -9};
+        int[] data3 = {2, 8, 1, 5, 9};
+
+        System.out.println(findGreatSum(data));
+        System.out.println(findGreatSum(data2));
+        System.out.println(findGreatSum(data3));
     }
 }

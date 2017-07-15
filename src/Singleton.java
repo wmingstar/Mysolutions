@@ -2,12 +2,16 @@
  * Created by byuwa on 2017/3/27.
  */
 public class Singleton {
-    private static Singleton instance;
-    private Singleton (){}
-    public static synchronized Singleton getInstance() {
-        if (instance == null) {
-            instance = new Singleton();
+    private static Singleton singleton;
+    private Singleton(){}
+    public static Singleton getInstance(){
+        if(singleton==null){
+            synchronized(Singleton.class){
+                if(singleton==null){
+                    singleton = new Singleton();
+                }
+            }
         }
-        return instance;
+        return singleton;
     }
 }

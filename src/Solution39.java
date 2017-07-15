@@ -1,9 +1,9 @@
 /**
  * Created by byuwa on 2017/3/30.
- * 输入一颗二叉树的根节点，求该树的深度，从根结点到叶节点依次经过的结点（含 根、叶结点）形成姝的一条路径，
+ * 输入一颗二叉树的根节点，求该树的深度，从根结点到叶节点依次经过的结点（含 根、叶结点）形成树的一条路径，
  * 最长路径的长度为树的深度。
  *
- * shrubs一颗二叉树，判断该树 是不是平衡树
+ * 输入一颗二叉树，判断该树 是不是平衡树
  *
  */
 public class Solution39 {
@@ -20,13 +20,12 @@ public class Solution39 {
     //判断是否是平衡树
     public static boolean isBalanced1(BinaryTreeNode root){
         if(root==null){
-            System.out.print("空树");
             return true;
         }
         int left = treeDepth(root.left);
         int right = treeDepth(root.right);
         int diff = left-right;
-        if(diff>1 && diff<-1){
+        if(diff>1 || diff<-1){
             return false;
         }
         return isBalanced1(root.left) && isBalanced1(root.right);
@@ -55,6 +54,158 @@ public class Solution39 {
             }
         }
         return false;
+    }
+
+    public static void main(String[] args) {
+        test1();
+        test2();
+        test3();
+        test4();
+    }
+
+
+    // 完全二叉树
+    //             1
+    //         /      \
+    //        2        3
+    //       /\       / \
+    //      4  5     6   7
+    private static void test1() {
+        BinaryTreeNode n1 = new BinaryTreeNode(1);
+        BinaryTreeNode n2 = new BinaryTreeNode(1);
+        BinaryTreeNode n3 = new BinaryTreeNode(1);
+        BinaryTreeNode n4 = new BinaryTreeNode(1);
+        BinaryTreeNode n5 = new BinaryTreeNode(1);
+        BinaryTreeNode n6 = new BinaryTreeNode(1);
+        BinaryTreeNode n7 = new BinaryTreeNode(1);
+
+        n1.left = n2;
+        n1.right = n3;
+        n2.left = n4;
+        n2.right = n5;
+        n3.left = n6;
+        n3.right = n7;
+
+        System.out.println(isBalanced1(n1));
+        System.out.println(isBalanced2(n1));
+        System.out.println("----------------");
+
+    }
+
+    // 不是完全二叉树，但是平衡二叉树
+    //             1
+    //         /      \
+    //        2        3
+    //       /\         \
+    //      4  5         6
+    //        /
+    //       7
+    private static void test2() {
+        BinaryTreeNode n1 = new BinaryTreeNode(1);
+        BinaryTreeNode n2 = new BinaryTreeNode(1);
+        BinaryTreeNode n3 = new BinaryTreeNode(1);
+        BinaryTreeNode n4 = new BinaryTreeNode(1);
+        BinaryTreeNode n5 = new BinaryTreeNode(1);
+        BinaryTreeNode n6 = new BinaryTreeNode(1);
+        BinaryTreeNode n7 = new BinaryTreeNode(1);
+
+        n1.left = n2;
+        n1.right = n3;
+        n2.left = n4;
+        n2.right = n5;
+        n5.left = n7;
+        n3.right = n6;
+
+
+        System.out.println(isBalanced1(n1));
+        System.out.println(isBalanced2(n1));
+        System.out.println("----------------");
+    }
+
+    // 不是平衡二叉树
+    //             1
+    //         /      \
+    //        2        3
+    //       /\
+    //      4  5
+    //        /
+    //       7
+    private static void test3() {
+        BinaryTreeNode n1 = new BinaryTreeNode(1);
+        BinaryTreeNode n2 = new BinaryTreeNode(1);
+        BinaryTreeNode n3 = new BinaryTreeNode(1);
+        BinaryTreeNode n4 = new BinaryTreeNode(1);
+        BinaryTreeNode n5 = new BinaryTreeNode(1);
+        BinaryTreeNode n6 = new BinaryTreeNode(1);
+        BinaryTreeNode n7 = new BinaryTreeNode(1);
+
+        n1.left = n2;
+        n1.right = n3;
+        n2.left = n4;
+        n2.right = n5;
+        n5.left = n7;
+
+        System.out.println(isBalanced1(n1));
+        System.out.println(isBalanced2(n1));
+        System.out.println("----------------");
+    }
+
+    //               1
+    //              /
+    //             2
+    //            /
+    //           3
+    //          /
+    //         4
+    //        /
+    //       5
+    private static void test4() {
+        BinaryTreeNode n1 = new BinaryTreeNode(1);
+        BinaryTreeNode n2 = new BinaryTreeNode(1);
+        BinaryTreeNode n3 = new BinaryTreeNode(1);
+        BinaryTreeNode n4 = new BinaryTreeNode(1);
+        BinaryTreeNode n5 = new BinaryTreeNode(1);
+        BinaryTreeNode n6 = new BinaryTreeNode(1);
+        BinaryTreeNode n7 = new BinaryTreeNode(1);
+
+        n1.left = n2;
+        n2.left = n3;
+        n3.left = n4;
+        n4.left = n5;
+
+
+        System.out.println(isBalanced1(n1));
+        System.out.println(isBalanced2(n1));
+        System.out.println("----------------");
+    }
+
+    // 1
+    //  \
+    //   2
+    //    \
+    //     3
+    //      \
+    //       4
+    //        \
+    //         5
+    private static void test5() {
+        BinaryTreeNode n1 = new BinaryTreeNode(1);
+        BinaryTreeNode n2 = new BinaryTreeNode(1);
+        BinaryTreeNode n3 = new BinaryTreeNode(1);
+        BinaryTreeNode n4 = new BinaryTreeNode(1);
+        BinaryTreeNode n5 = new BinaryTreeNode(1);
+        BinaryTreeNode n6 = new BinaryTreeNode(1);
+        BinaryTreeNode n7 = new BinaryTreeNode(1);
+
+        n1.right = n2;
+        n2.right = n3;
+        n3.right = n4;
+        n4.right = n5;
+
+
+        System.out.println(isBalanced1(n1));
+        System.out.println(isBalanced2(n1));
+        System.out.println("----------------");
     }
 
 

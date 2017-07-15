@@ -1,37 +1,21 @@
+import java.io.File;
+import java.io.IOException;
+
 public class Test {
-    public static boolean hasSubTree(BinaryTreeNode root1,BinaryTreeNode root2){
-        boolean result = false;
-        if(root2 ==null){
-            return true;
+    public static String test(){
+        File a = new File(".");
+        String name = "";
+        try {
+            name = a.getCanonicalPath().toString();
+            System.out.print(name);
         }
-        if(root1==root2){
-            return true;
+        catch (IOException e){
+            e.printStackTrace();
         }
-        if(root1!=null && root2!=null){
-            if(root1.value==root2.value){
-                result = doseTree1HasTree2(root1,root2);
-            }
-            if(!result){
-                result = hasSubTree(root1.left,root2);
-            }
-            if (!result){
-                result = hasSubTree(root1.right,root2);
-            }
-        }
-        return result;
+        return name;
     }
-
-    public static boolean doseTree1HasTree2(BinaryTreeNode root1,BinaryTreeNode root2){
-        if(root2==null){
-            return true;
-        }
-        if(root1==null){
-            return false;
-        }
-        if(root1.value!=root2.value){
-            return false;
-        }
-        return doseTree1HasTree2(root1.left,root2.left) && doseTree1HasTree2(root1.right,root2.right);
+    public static  void  main(String[] args) {
+        String name = Test.test();
+        System.out.print(name);
     }
-
 }

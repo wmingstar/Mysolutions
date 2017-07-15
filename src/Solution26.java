@@ -1,5 +1,3 @@
-import org.omg.CORBA.CODESET_INCOMPATIBLE;
-
 import java.util.HashMap;
 import java.util.Map;
 
@@ -55,6 +53,8 @@ public class Solution26 {
         return new_head;
 
     }
+
+
     /**
      * @param head 链表表头结点
      * @return 复制结点的头结点
@@ -74,7 +74,7 @@ public class Solution26 {
     }
 
     /**
-     * 复制一个链表，并且将复制后的结点插入到被复制的结点后面，只链接复制结点的next字段
+     * 复制链表，将复制后的结点插入到被复制的结点后面
      * @param head 待复制链表的头结点
      */
     public static void cloneNodes(ComplexListNode head) {
@@ -85,7 +85,7 @@ public class Solution26 {
             // 将被复制结点的值传给复制结点
             //  tmp.value = head.value;
             ///////////////////////////////////////////////////////////////////////////////////////////
-            // TODO 此处为了做测试，让复制结点的值都增加了100，如果不需要可以将下面一个行注释掉，打开上一行。
+            // TODO 此处为了做测试，让复制结点的值都增加了100，如果不需要可以将下面一行注释掉，打开上一行。
             tmp.value = head.value + 100;
             ///////////////////////////////////////////////////////////////////////////////////////////
 
@@ -100,7 +100,7 @@ public class Solution26 {
     }
 
     /**
-     * 设置复制结点的sibling字段
+     * 复制结点的sibling字段
      * @param head 链表的头结
      */
     public static void connectNodes(ComplexListNode head) {
@@ -206,11 +206,18 @@ public class Solution26 {
         head.next.next.next.sibling = head.next;
 
         ComplexListNode tmp = head;
+        System.out.println("原始链表");
         printList(head);
-        ComplexListNode newHead = clone2(head);
+        ComplexListNode newHead = clone(head);
+        System.out.println();
+        System.out.println("克隆之后，再次输出原始链表，检测原始链表的结构在克隆" +
+                "过程中是否发生变化");
         printList(head);
+        System.out.println("判断克隆之后原链表结构是否改变");
         System.out.println(isSame(head, tmp));
+        System.out.println("克隆得到的链表");
         printList(newHead);
+        System.out.println("判断原链表与克隆得到的链表是否相等");
         System.out.println(isSame(head, newHead));
 
 
@@ -238,11 +245,17 @@ public class Solution26 {
 
         System.out.println("\n");
         tmp = head2;
+        System.out.println("输出原始链表");
         printList(head2);
-        ComplexListNode newHead2 = clone2(head2);
+        ComplexListNode newHead2 = clone(head2);
+        System.out.println("克隆之后，再次输出原始链表，检测原始链表的结构在克隆" +
+                "过程中是否发生变化");
         printList(head2);
+        System.out.println("判断克隆之后原链表结构是否改变");
         System.out.println(isSame(head2, tmp));
+        System.out.println("克隆得到的链表");
         printList(newHead2);
+        System.out.println("判断原链表与克隆得到的链表是否相等");
         System.out.println(isSame(head2, newHead2));
 
 
@@ -251,15 +264,18 @@ public class Solution26 {
 
         System.out.println("\n");
         tmp = head3;
+        System.out.println("输出原始链表");
         printList(head3);
-        ComplexListNode newHead3 = clone2(head3);
+        ComplexListNode newHead3 = clone(head3);
+        System.out.println("克隆之后，再次输出原始链表，检测原始链表的结构在克隆" +
+                "过程中是否发生变化");
         printList(head3);
+        System.out.println("判断克隆之后原链表结构是否改变");
         System.out.println(isSame(head3, tmp));
+        System.out.println("克隆得到的链表");
         printList(newHead3);
+        System.out.println("判断原链表与克隆得到的链表是否相等");
         System.out.println(isSame(head3, newHead3));
 
-        System.out.println("\n");
-        ComplexListNode head4 = clone(null);
-        printList(head4);
     }
 }

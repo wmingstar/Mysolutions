@@ -1,6 +1,7 @@
 /**
  * Created by byuwa on 2017/3/28.
- * 我们把只包含因子 2，3，5的数称为丑数，求按从小到大的顺序的第1500个丑数。习惯上把 1 当作第一个丑数
+ * 我们把只包含因子 2，3，5的数称为丑数，求按从小到大的顺序的第1500个丑数。
+ * （习惯上把 1 当作第一个丑数）
  *
  */
 public class Solution34 {
@@ -39,5 +40,10 @@ public class Solution34 {
         int min = num1<num2?num1:num2;
         min = min<num3?min:num3;
         return min;
+    }
+
+    public static void main(String[] args) {
+        int result = getUglyNum(1500);
+        System.out.print(result);
     }
 }

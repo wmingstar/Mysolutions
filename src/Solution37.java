@@ -1,6 +1,6 @@
 /**
  * Created by byuwa on 2017/3/30.
- * 输入两个链表，找出它们的第一个公共结点
+ * 输入两个链表，找出它们的第一个公共结点。
  *
  */
 public class Solution37 {
